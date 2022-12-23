@@ -5,12 +5,19 @@ div {
     border: f.rem(1) solid v.$red;
     padding: 0 f.rem(16);
 
-    h1 {
+    .h1-class {
         color: v.$green;
         text-decoration: underline;
         text-align: center;
     }
+
+    .h2-class {
+        @extend .h1-class;
+        padding: 1rem;
+        border: 1px solid v.$red;
+    }
 }
+
 
 @mixin style($color, $border-color, $font-size) {
     padding: f.rem(16);

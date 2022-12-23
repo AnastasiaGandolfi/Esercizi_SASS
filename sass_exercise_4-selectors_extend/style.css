@@ -2,10 +2,14 @@ div {
   border: 0.0625rem solid red;
   padding: 0 1rem;
 }
-div h1 {
+div .h1-class, div .h2-class {
   color: green;
   text-decoration: underline;
   text-align: center;
+}
+div .h2-class {
+  padding: 1rem;
+  border: 1px solid red;
 }
 
 section {
