@@ -1,0 +1,35 @@
+.exercise {
+  border: 1px solid red;
+}
+.exercise .exercise-title {
+  color: green;
+  text-align: center;
+  text-decoration: underline;
+}
+
+section {
+  display: flex;
+  margin: 0 1rem 1rem;
+}
+
+article {
+  border: 1px solid green;
+}
+article:nth-child(odd) {
+  color: blue;
+}
+article:nth-child(even) {
+  color: red;
+}
+
+article {
+  border: 1px solid green;
+}
+article p {
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=style.css.map */
