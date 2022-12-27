@@ -1,0 +1,86 @@
+@use "variables.scss" as v;
+@use "functions.scss" as f;
+@use "sass:color";
+
+/* @extend */
+
+%text {
+    color: v.$green;
+}
+
+body>div {
+    display: flex;
+    flex-direction: column;
+    border: f.rem(1) solid v.$red;
+    padding: 0 f.rem(16);
+    text-align: center;
+
+    .h1-class {
+        @extend %text;
+        text-decoration: underline;
+        text-decoration-color: v.$blue;
+    }
+
+    .h2-class {
+        @extend %text;
+        align-self: center;
+        padding: 1rem;
+        border: v.$red-border;
+    }
+}
+
+/* @mixin */
+
+@mixin style($color, $border-color, $font-size) {
+    padding: f.rem(16);
+    margin-bottom: f.rem(16);
+    border: f.rem(1) solid $border-color;
+    color: $color;
+    font-size: $font-size;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+
+    article {
+        &:nth-child(odd) {
+            @include style(v.$blue, v.$green, f.rem(16))
+        }
+
+        &:nth-child(even) {
+            @include style(v.$red, v.$green, f.rem(16));
+        }
+    }
+
+    &:last-child {
+        article {
+            @include style(v.$green, v.$blue, f.rem(24));
+            flex: 1;
+        }
+    }
+
+    div {
+        width: f.rem(45);
+        height: f.rem(45);
+        margin-bottom: f.rem(10);
+        border: v.$red-border;
+        text-align: left;
+
+        @for $var from 1 to 20 {
+            &:nth-child(#{$var}) {
+                color: color.adjust($color: black, $lightness: $var * 5%);
+                background-color: color.adjust($color: white, $lightness: $var * -5%);
+                @if $var == 10 {
+                    color: v.$red;
+                    background-color: v.$blue;
+                };
+            }
+        };
+        @each $key, $value in v.$font-size {
+            &#{$key} { /* div.fs-#rem; & serve a dire che la classe è dentro i div*/
+                font-size: $value;
+            };
+        };
+    }
+}

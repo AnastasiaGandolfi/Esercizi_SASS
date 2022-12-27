@@ -1,0 +1,14 @@
+@use "functions.scss" as f;
+
+/* variabili */
+$red: red;
+$blue: blue;
+$green: green;
+$white: white;
+$black: black;
+$red-border: f.rem(1) solid $red;
+$font-size: (
+    ".fs-1rem": 1rem,
+    ".fs-2rem": 2rem,
+    ".fs-3rem": 3rem,
+);
